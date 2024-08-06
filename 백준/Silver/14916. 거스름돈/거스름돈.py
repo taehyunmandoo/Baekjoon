@@ -1,0 +1,23 @@
+import sys
+
+n = int(sys.stdin.readline())
+
+coin_types = [5, 2]
+
+result = 0
+
+while True:
+    if n % 5 == 0:
+        result += n//5
+        break
+    else:
+        n-=2
+        result += 1
+        
+    if n < 0:
+        break
+if n < 0:
+    print(-1)
+else:
+    print(result)
+        
