@@ -6,4 +6,7 @@ def solution(s):
         elif char == "y" or char == "Y":  # 'y' 또는 'Y'라면
             count -= 1
 
-    return count == 0
+    if count == 0:
+        return True
+    else:
+        return False
