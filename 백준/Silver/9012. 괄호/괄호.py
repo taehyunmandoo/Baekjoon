@@ -1,20 +1,27 @@
-t = int(input())
+import sys
 
-for i in range(t):
-    stack = list(input())
-    sum = 0
+input = sys.stdin.readline
 
-    for j in range(len(stack)):
-        if stack[j] == "(":
-            sum += 1
-        else:
-            sum -= 1
+T = int(input().strip())
 
-        if sum < 0: # ())일 때
-            print("NO")
-            break
 
-    if sum > 0:     # 짝 개수가 맞지 않을 떄
-        print("NO")
-    elif sum == 0:  # 짝 개수가 똑같을 때
+for _ in range(T):
+    data = input().strip()
+    stack = []
+    is_vps = True
+    
+    for char in data:
+        if char == '(':
+            stack.append(char)
+        elif char == ')':
+            if stack:
+                stack.pop()
+            else:
+                is_vps = False
+                break
+            
+    if is_vps and not stack:
         print("YES")
+    else:
+        print("NO")
+        
